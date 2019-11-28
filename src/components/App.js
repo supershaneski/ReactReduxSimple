@@ -10,22 +10,3 @@ const App = () => (
 )
 
 export default App;
-
-/*
-import React from 'react';
-import { Provider } from 'react-redux';
-import SSInput from '../components/ssinput';
-import SSViewer from '../components';
-
-class App extends React.Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <SSInput />
-                <SSViewer />
-            </Provider>
-        )
-    }
-}
-
-export default App; */

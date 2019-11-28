@@ -1,30 +1,38 @@
 import React from 'react';
 import { ReactReduxContext } from 'react-redux';
 import addTask from '../actions/index';
+import { VAR_OPACITY, VAR_SPECULAR, VAR_DIFFUSE, VAR_TEXTURE } from './variationTypes.js';
 import '../index.css';
 
 const styles = {
     container: {
         padding: `5px 0px 0px 0px`,
-    },
-    button: {
-        backgroundColor: `#fff`,
-        padding: `5px`,
-        marginLeft: `5px`,
-        border: `1px solid #222`,
-        cursor: `pointer`,
-        outline: `none`
     }
 }
 
 const AddTask = () => {
+    
     const handleClick = (store) => {
-        let chance = Math.floor(10*Math.random());
-        let variation = (chance > 5)?"Texture":"Opacity";
-        variation = (chance === 3)?"Specular":variation;
-        variation = (chance === 7)?"Diffuse":variation;
+        const chance = Math.floor(Math.random() * 5);
+        
+        let variation = "";
+        switch(chance) {
+          case 1:
+            variation = VAR_OPACITY;
+            break;
+          case 2:
+            variation = VAR_SPECULAR;
+            break;
+          case 3:
+            variation = VAR_DIFFUSE;
+            break;
+          default:
+            variation = VAR_TEXTURE;
+        }
+
         store.dispatch(addTask(variation));
     }
+
     return (
         <ReactReduxContext.Consumer>
         {({ store }) => {

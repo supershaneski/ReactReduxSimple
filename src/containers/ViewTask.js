@@ -9,10 +9,12 @@ class ViewTask extends React.Component {
         this.state = {
             a: []
         }
-    }    
+    }
+
     componentWillUnmount() {
         this.unsub();
     }
+    
     render() {
         return (
             <ReactReduxContext.Consumer>
@@ -29,8 +31,8 @@ class ViewTask extends React.Component {
 
                 return (
                     <React.Fragment>
-                    <CountTask data={this.state.a} />
-                    <ListTask store={store} data={this.state.a} />
+                        <CountTask data={this.state.a} />
+                        <ListTask store={store} data={this.state.a} />
                     </React.Fragment>
                 )
             }}

@@ -1,3 +1,5 @@
+import { ADD_TASK, DELETE_TASK } from '../actions/actionTypes.js';
+
 const addTask = (action, state) => {
     const newtodo = {
         id: action.id,
@@ -13,9 +15,9 @@ const deleteTask = (index, state) => {
 
 const todos = (state = [], action) => {
     switch (action.type) {
-        case 'DELETE':
+        case DELETE_TASK:
             return deleteTask(action.index, state)
-        case 'ADD':
+        case ADD_TASK:
             return addTask(action, state)
         default:
             return state;

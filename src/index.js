@@ -8,15 +8,7 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import reducer from './reducers'
 
-// Uncomment this to add default task
-import addTask from './actions/index';
-
 const store = createStore(reducer)
-
-// Add default tasks in store
-store.dispatch(addTask('Texture'));
-store.dispatch(addTask('Specular'));
-store.dispatch(addTask('Diffuse'));
 
 ReactDOM.render(
 <Provider store={store}>
